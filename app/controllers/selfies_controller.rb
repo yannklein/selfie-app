@@ -22,7 +22,6 @@ class SelfiesController < ApplicationController
   # POST /selfies or /selfies.json
   def create
     @selfy = Selfie.new(selfy_params)
-
     respond_to do |format|
       if @selfy.save
         format.html { redirect_to @selfy, notice: "Selfie was successfully created." }
