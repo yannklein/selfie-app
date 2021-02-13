@@ -1,14 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @selfy.title %>
-</p>
+      <p>
+        <strong>Title:</strong>
+        <%= @selfy.title %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @selfy.description %>
-</p>
+      <p>
+        <strong>Selfie:</strong>
+        <% if @selfy.photo.attached? %>
+          <td><%= cl_image_tag @selfy.photo.key , alt: "alttext", style: "width: 400px" %></td>
+        <% end %>
+      </p>
 
-<%= link_to 'Edit', edit_selfy_path(@selfy) %> |
-<%= link_to 'Back', selfies_path %>
+      <%= link_to 'Edit', edit_selfy_path(@selfy) %> |
+      <%= link_to 'Back', selfies_path %>
+    </div>
+  </div>
+</div>
+

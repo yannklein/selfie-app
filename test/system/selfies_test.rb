@@ -14,7 +14,6 @@ class SelfiesTest < ApplicationSystemTestCase
     visit selfies_url
     click_on "New Selfie"
 
-    fill_in "Description", with: @selfy.description
     fill_in "Title", with: @selfy.title
     click_on "Create Selfie"
 
@@ -26,7 +25,6 @@ class SelfiesTest < ApplicationSystemTestCase
     visit selfies_url
     click_on "Edit", match: :first
 
-    fill_in "Description", with: @selfy.description
     fill_in "Title", with: @selfy.title
     click_on "Update Selfie"
 

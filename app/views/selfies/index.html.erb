@@ -1,33 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
 
-<h1>Selfies</h1>
+      <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <h1>Selfies</h1>
 
-  <tbody>
-    <% @selfies.each do |selfy| %>
-      <tr>
-        <td><%= selfy.title %></td>
-        <td><%= selfy.description %></td>
-        <% if selfy.photo.attached? %>
-          <td><%= cl_image_tag selfy.photo.key , alt: "alttext", style: "width: 100px" %></td>
-        <% end %>
-        <td><%= link_to 'Show', selfy %></td>
-        <td><%= link_to 'Edit', edit_selfy_path(selfy) %></td>
-        <td><%= link_to 'Destroy', selfy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Image</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<br>
+        <tbody>
+          <% @selfies.each do |selfy| %>
+            <tr>
+              <td><%= selfy.title %></td>
+              <% if selfy.photo.attached? %>
+                <td><%= cl_image_tag selfy.photo.key , alt: "alttext", style: "width: 100px" %></td>
+              <% end %>
+              <td><%= link_to 'Show', selfy %></td>
+              <td><%= link_to 'Edit', edit_selfy_path(selfy) %></td>
+              <td><%= link_to 'Destroy', selfy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-<%= link_to 'New Selfy', new_selfy_path %>
+      <br>
+
+      <%= link_to 'New Selfy', new_selfy_path %>
+
+    </div>
+  </div>
+</div>
+

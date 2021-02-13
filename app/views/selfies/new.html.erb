@@ -1,5 +1,14 @@
-<h1>New Selfy</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 text-center m-5">
 
-<%= render 'form', selfy: @selfy %>
+      <h1 class="mb-3" >Take a selfie!</h1>
 
-<%= link_to 'Back', selfies_path %>
+      <%= render 'form', selfy: @selfy %>
+
+      <%= link_to 'Back', selfies_path, class: 'btn btn-primary mt-5' %>
+
+    </div>
+  </div>
+</div>
+

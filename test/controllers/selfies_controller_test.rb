@@ -17,7 +17,7 @@ class SelfiesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create selfy" do
     assert_difference('Selfie.count') do
-      post selfies_url, params: { selfy: { description: @selfy.description, title: @selfy.title } }
+      post selfies_url, params: { selfy: { title: @selfy.title } }
     end
 
     assert_redirected_to selfy_url(Selfie.last)
@@ -34,7 +34,7 @@ class SelfiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update selfy" do
-    patch selfy_url(@selfy), params: { selfy: { description: @selfy.description, title: @selfy.title } }
+    patch selfy_url(@selfy), params: { selfy: { title: @selfy.title } }
     assert_redirected_to selfy_url(@selfy)
   end
 

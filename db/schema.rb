@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2021_02_13_025111) do
 
   create_table "selfies", force: :cascade do |t|
     t.string "title"
-    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

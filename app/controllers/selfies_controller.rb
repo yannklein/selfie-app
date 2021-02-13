@@ -64,6 +64,6 @@ class SelfiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def selfy_params
-      params.require(:selfie).permit(:title, :description, :photo)
+      params.require(:selfie).permit(:title, :photo)
     end
 end
