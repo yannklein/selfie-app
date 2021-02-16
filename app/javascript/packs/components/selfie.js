@@ -36,7 +36,7 @@ const initSelfie = () => {
     })
   }
 
-  navigator.mediaDevices.getUserMedia({ video: { facingMode: (front? "user" : "environment") }, audio: false })
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: (front ? "user" : "environment") }, audio: false })
     .then(function(stream) {
         video.srcObject = stream;
         video.play();
@@ -63,6 +63,7 @@ const initSelfie = () => {
 
   flipButton.addEventListener('click', (event) => {
    front = !front;
+   initSelfie();
   });
 
 }
