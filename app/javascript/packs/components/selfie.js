@@ -36,14 +36,18 @@ const initSelfie = () => {
     })
   }
 
-  navigator.mediaDevices.getUserMedia({ video: { facingMode: (front ? "user" : "environment") }, audio: false })
-    .then(function(stream) {
-        video.srcObject = stream;
-        video.play();
-    })
-    .catch(function(err) {
-        console.log("An error occurred: " + err);
-    });
+  const addStreamToVideo = () => {
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: (front ? "user" : "environment") }, audio: false })
+      .then(function(stream) {
+          video.srcObject = stream;
+          video.play();
+      })
+      .catch(function(err) {
+          console.log("An error occurred: " + err);
+      });
+  }
+
+  addStreamToVideo();
 
   video.addEventListener('canplay', function(ev){
       if (!streaming) {
@@ -63,7 +67,7 @@ const initSelfie = () => {
 
   flipButton.addEventListener('click', (event) => {
    front = !front;
-   initSelfie();
+   addStreamToVideo();
   });
 
 }
