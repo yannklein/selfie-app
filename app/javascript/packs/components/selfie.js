@@ -3,9 +3,11 @@ import Rails from "@rails/ujs";
 const initSelfie = () => {
   const video = document.querySelector('.selfie-video');
   const photo = document.querySelector('.selfie-photo');
-  const startbutton = document.querySelector('.selfie-startbutton');
+  const startButton = document.querySelector('.selfie-btn.start');
+  const flipButton = document.querySelector('.selfie-btn.flip');
   const canvas = document.createElement('canvas');
 
+  let front = false;
   let width = 400;    // We will scale the photo width to this
   let height = 0;
   let streaming = false;
@@ -24,7 +26,7 @@ const initSelfie = () => {
     formData.append('selfie[photo]', data, 'selfie.png');
     formData.append('selfie[title]', `Picture taken on ${(new Date).toString()}`);
 
-    startbutton.innerText = "✅";
+    startButton.innerText = "✅";
     video.pause();
 
     Rails.ajax({
@@ -34,7 +36,7 @@ const initSelfie = () => {
     })
   }
 
-  navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: (front? "user" : "environment") }, audio: false })
     .then(function(stream) {
         video.srcObject = stream;
         video.play();
@@ -55,10 +57,14 @@ const initSelfie = () => {
       }
     }, false);
 
-  startbutton.addEventListener('click', (event) => {
-      event.preventDefault();
-      takePicture();
-    });
+  startButton.addEventListener('click', (event) => {
+    takePicture();
+  });
+
+  flipButton.addEventListener('click', (event) => {
+   front = !front;
+  });
+
 }
 
 export { initSelfie };

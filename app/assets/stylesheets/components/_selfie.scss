@@ -7,9 +7,8 @@
   width: 100%;
 }
 
-.selfie-startbutton {
+.selfie-btn {
   position: absolute;
-  bottom: 8px;
   left: 0;
   width: 100%;
   text-align: center;
@@ -17,4 +16,12 @@
   margin: 0;
   text-shadow: 0 0 8px rgba(255,255,255,0.7);
   cursor: pointer;
+}
+
+.selfie-btn.start{
+  bottom: 8px;
+}
+
+.selfie-btn.flip {
+  top: 8px;
 }
